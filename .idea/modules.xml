@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/filter.iml" filepath="$PROJECT_DIR$/filter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/filter/filter-filter.iml" filepath="$PROJECT_DIR$/filter/filter-filter.iml" />
+    </modules>
+  </component>
+</project>
+
