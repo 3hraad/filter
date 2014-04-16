@@ -25,12 +25,15 @@ public class GameActivity extends Activity {
             "Ad","2d","3d","4d","5d","6d","7d","8d","9d","10d","Jd","Qd","Kd",
             "Ah","2h","3h","4h","5h","6h","7h","8h","9h","10h","Jh","Qh","Kh",
             "Ac","2c","3c","4c","5c","6c","7c","8c","9c","10c","Jc","Qc","Kc"
-            };
+    };
     int score=0, currentRound=1;
     String shuffled[]=new String[52];
     ImageView chosenIV,card1,card2,card3,card4,card5,card6,card7,card8,card9,card10;
     TextView chosenTV,text1,text2,text3,text4,text5,text6,text7,text8,text9,text10;
-    int ROUND1 = 1001,ROUND2 = 1002,ROUND3 = 1003,ROUND4 = 1004;
+    final static int ROUND1 = 1001;
+    final static int ROUND2 = 1002;
+    final static int ROUND3 = 1003;
+    final static int ROUND4 = 1004;
     TextView TVpickedCards[]=new TextView[4];
     ImageView IVpickedCards[]=new ImageView[4];
     TextView scoreView, highScoreView;
@@ -120,137 +123,148 @@ public class GameActivity extends Activity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK && requestCode == ROUND1) {
-            if (data.hasExtra("colour")){
-                String colour= data.getExtras().getString("colour");
-                showCard(chosenIV,chosenTV);
+        switch (resultCode){
+            case (RESULT_OK):
+                switch (requestCode){
+                    case (ROUND1):
+                        if (data.hasExtra("colour")){
+                            String colour= data.getExtras().getString("colour");
+                            showCard(chosenIV,chosenTV);
 
-                if( colour.equals("red")){
-                    if(chosenTV.getText().toString().contains("h")||chosenTV.getText().toString().contains("d")){
-                        Toast.makeText(getApplicationContext(),"Correct",Toast.LENGTH_SHORT).show();
-                        startRound2();
-                    }else {
-                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
-                        score++;
-                        updateScore();
-                    }
+                            if( colour.equals("red")){
+                                if(chosenTV.getText().toString().contains("h")||chosenTV.getText().toString().contains("d")){
+                                    Toast.makeText(getApplicationContext(),"Correct",Toast.LENGTH_SHORT).show();
+                                    startRound2();
+                                }else {
+                                    Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
+                                    score++;
+                                    updateScore();
+                                }
 
-                } else
-                if( colour.equals("black")){
-                    if(chosenTV.getText().toString().contains("s")||chosenTV.getText().toString().contains("c")){
-                        Toast.makeText(getApplicationContext(),"Correct",Toast.LENGTH_SHORT).show();
-                        startRound2();
-                    }else {
-                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
-                        score++;
-                        updateScore();
+                            } else
+                            if( colour.equals("black")){
+                                if(chosenTV.getText().toString().contains("s")||chosenTV.getText().toString().contains("c")){
+                                    Toast.makeText(getApplicationContext(),"Correct",Toast.LENGTH_SHORT).show();
+                                    startRound2();
+                                }else {
+                                    Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
+                                    score++;
+                                    updateScore();
 
-                    }
+                                }
+                            }
+                            endRound1();
+
+                        }
+                        break;
+                    case (ROUND2):
+                        if (data.hasExtra("pick")){
+                            currentRound=2;
+                            String pick= data.getExtras().getString("pick");
+                            showCard(chosenIV,chosenTV);
+
+                            int old =getCardValue(TVpickedCards[0]);
+                            int current= getCardValue(TVpickedCards[1]);
+
+                            if( pick.equals("high")){
+                                if(current>old){
+                                    Toast.makeText(getApplicationContext(),"Correct",Toast.LENGTH_SHORT).show();
+                                    startRound3();
+                                }else {
+                                    Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
+                                    score+=2;
+                                    updateScore();
+                                }
+
+                            } else
+                            if( pick.equals("low")){
+                                if(current<old){
+                                    Toast.makeText(getApplicationContext(),"Correct",Toast.LENGTH_SHORT).show();
+                                    startRound3();
+                                }else {
+                                    Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
+                                    score+=2;
+                                    updateScore();
+
+                                }
+                            }
+                            endRound2();
+
+                        }
+                        break;
+                    case (ROUND3):
+                        if (data.hasExtra("pick")){
+                            currentRound=3;
+                            String pick= data.getExtras().getString("pick");
+                            showCard(chosenIV,chosenTV);
+
+                            int old =getCardValue(TVpickedCards[1]);
+                            int current= getCardValue(TVpickedCards[2]);
+
+                            if( pick.equals("high")){
+                                if(current>old){
+                                    Toast.makeText(getApplicationContext(),"Correct",Toast.LENGTH_SHORT).show();
+                                    startRound4();
+                                }else {
+                                    Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
+                                    score+=3;
+                                    updateScore();
+                                }
+
+                            } else
+                            if( pick.equals("low")){
+                                if(current<old){
+                                    Toast.makeText(getApplicationContext(),"Correct",Toast.LENGTH_SHORT).show();
+                                    startRound4();
+                                }else {
+                                    Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
+                                    score+=3;
+                                    updateScore();
+
+                                }
+                            }
+                            endRound3();
+
+                        }
+                        break;
+                    case (ROUND4):
+                        if (data.hasExtra("pick")){
+                            currentRound=4;
+                            String pick= data.getExtras().getString("pick");
+                            showCard(chosenIV,chosenTV);
+
+                            int old =getCardValue(TVpickedCards[2]);
+                            int current= getCardValue(TVpickedCards[3]);
+
+                            if( pick.equals("high")){
+                                if(current>old){
+                                    endOfGame();
+                                }else {
+                                    Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
+                                    score+=4;
+                                    updateScore();
+                                }
+
+                            } else
+                            if( pick.equals("low")){
+                                if(current<old){
+                                    endOfGame();
+                                }else {
+                                    Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
+                                    score+=4;
+                                    updateScore();
+
+                                }
+                            }
+                            endRound4();
+
+                        }
+                        break;
+
+
                 }
-                endRound1();
-
-            }
-        } else if (resultCode == RESULT_OK && requestCode == ROUND2) {
-            if (data.hasExtra("pick")){
-                currentRound=2;
-                String pick= data.getExtras().getString("pick");
-                showCard(chosenIV,chosenTV);
-
-                int old =getCardValue(TVpickedCards[0]);
-                int current= getCardValue(TVpickedCards[1]);
-
-                if( pick.equals("high")){
-                    if(current>old){
-                        Toast.makeText(getApplicationContext(),"Correct",Toast.LENGTH_SHORT).show();
-                        startRound3();
-                    }else {
-                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
-                        score+=2;
-                        updateScore();
-                    }
-
-                } else
-                if( pick.equals("low")){
-                    if(current<old){
-                        Toast.makeText(getApplicationContext(),"Correct",Toast.LENGTH_SHORT).show();
-                        startRound3();
-                    }else {
-                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
-                        score+=2;
-                        updateScore();
-
-                    }
-                }
-                endRound2();
-
-            }
-        }  else if (resultCode == RESULT_OK && requestCode == ROUND3) {
-            if (data.hasExtra("pick")){
-                currentRound=3;
-                String pick= data.getExtras().getString("pick");
-                showCard(chosenIV,chosenTV);
-
-                int old =getCardValue(TVpickedCards[1]);
-                int current= getCardValue(TVpickedCards[2]);
-
-                if( pick.equals("high")){
-                    if(current>old){
-                        Toast.makeText(getApplicationContext(),"Correct",Toast.LENGTH_SHORT).show();
-                        startRound4();
-                    }else {
-                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
-                        score+=3;
-                        updateScore();
-                    }
-
-                } else
-                if( pick.equals("low")){
-                    if(current<old){
-                        Toast.makeText(getApplicationContext(),"Correct",Toast.LENGTH_SHORT).show();
-                        startRound4();
-                    }else {
-                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
-                        score+=3;
-                        updateScore();
-
-                    }
-                }
-                endRound3();
-
-            }
-        }  else if (resultCode == RESULT_OK && requestCode == ROUND4) {
-            if (data.hasExtra("pick")){
-                currentRound=4;
-                String pick= data.getExtras().getString("pick");
-                showCard(chosenIV,chosenTV);
-
-                int old =getCardValue(TVpickedCards[2]);
-                int current= getCardValue(TVpickedCards[3]);
-
-                if( pick.equals("high")){
-                    if(current>old){
-                        endOfGame();
-                    }else {
-                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
-                        score+=4;
-                        updateScore();
-                    }
-
-                } else
-                if( pick.equals("low")){
-                    if(current<old){
-                        endOfGame();
-                    }else {
-                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
-                        score+=4;
-                        updateScore();
-
-                    }
-                }
-                endRound4();
-
-            }
         }
+
     }
 
     private void endOfGame() {
@@ -291,7 +305,7 @@ public class GameActivity extends Activity {
         } else if (origCard.contains("K")){
             result=13;
         }else{
-        String noLetters= origCard.replaceAll("[^0-9]", "");
+            String noLetters= origCard.replaceAll("[^0-9]", "");
             result=Integer.parseInt(noLetters);
         }
 
@@ -437,7 +451,7 @@ public class GameActivity extends Activity {
 
     private void updateScore() {
         scoreView = (TextView) findViewById(R.id.tvScore);
-        scoreView.setText("Score: "+ Integer.toString(score)); 
+        scoreView.setText("Score: "+ Integer.toString(score));
         restart.setVisibility(View.VISIBLE);
         restart.setEnabled(true);
         restart.setOnClickListener(new View.OnClickListener() {
@@ -456,25 +470,25 @@ public class GameActivity extends Activity {
     }
 
     private void backToStart() {
-       for (int x=0;x<currentRound;x++){
-           TVpickedCards[x].setVisibility(View.INVISIBLE);
-           TVpickedCards[x].setText(cards[nextCard]);
-           if (TVpickedCards[x].getText().toString().contains("d")||TVpickedCards[x].getText().toString().contains("h")){
-               TVpickedCards[x].setTextColor(Color.RED);
-           } else{
-               TVpickedCards[x].setTextColor(Color.BLACK);
+        for (int x=0;x<currentRound;x++){
+            TVpickedCards[x].setVisibility(View.INVISIBLE);
+            TVpickedCards[x].setText(cards[nextCard]);
+            if (TVpickedCards[x].getText().toString().contains("d")||TVpickedCards[x].getText().toString().contains("h")){
+                TVpickedCards[x].setTextColor(Color.RED);
+            } else{
+                TVpickedCards[x].setTextColor(Color.BLACK);
 
-           }
+            }
 //               TVpickedCards[x].setText(cards[nextCard]);
 
-           IVpickedCards[x].setImageResource(R.drawable.img_card_back);
-           nextCard++;
-           if(nextCard==52){
-               nextCard=0;
-           }
+            IVpickedCards[x].setImageResource(R.drawable.img_card_back);
+            nextCard++;
+            if(nextCard==52){
+                nextCard=0;
+            }
 
 
-       }
+        }
         currentRound=1;
         startRound1();
     }
