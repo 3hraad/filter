@@ -5,6 +5,19 @@
         android:layout_width="fill_parent">
 
 
-
-
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Play Game"
+            android:id="@+id/bPlay"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="154dp"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Leaderboards"
+            android:id="@+id/bLeaders"
+            android:layout_below="@+id/bPlay"
+            android:layout_centerHorizontal="true"/>
 </RelativeLayout>
