@@ -15,7 +15,6 @@ public class HighLowDialog extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_high_low);
-        final RadioGroup choice =(RadioGroup)findViewById(R.id.rgRound1);
         final RadioButton higher=(RadioButton)findViewById(R.id.rbHigh);
         final RadioButton lower=(RadioButton)findViewById(R.id.rbLow);
         TextView header= (TextView) findViewById(R.id.tvHighLowTitle);

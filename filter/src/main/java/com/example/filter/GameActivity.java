@@ -3,6 +3,7 @@ package com.example.filter;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -85,6 +86,37 @@ public class GameActivity extends Activity {
         text8.setText(cards[7]);
         text9.setText(cards[8]);
         text10.setText(cards[9]);
+
+        if (text1.getText().toString().contains("d")||text1.getText().toString().contains("h")){
+            text1.setTextColor(Color.RED);
+        }
+        if (text2.getText().toString().contains("d")||text2.getText().toString().contains("h")){
+            text2.setTextColor(Color.RED);
+        }
+        if (text3.getText().toString().contains("d")||text3.getText().toString().contains("h")){
+            text3.setTextColor(Color.RED);
+        }
+        if (text4.getText().toString().contains("d")||text4.getText().toString().contains("h")){
+            text4.setTextColor(Color.RED);
+        }
+        if (text5.getText().toString().contains("d")||text5.getText().toString().contains("h")){
+            text5.setTextColor(Color.RED);
+        }
+        if (text6.getText().toString().contains("d")||text6.getText().toString().contains("h")){
+            text6.setTextColor(Color.RED);
+        }
+        if (text7.getText().toString().contains("d")||text7.getText().toString().contains("h")){
+            text7.setTextColor(Color.RED);
+        }
+        if (text8.getText().toString().contains("d")||text8.getText().toString().contains("h")){
+            text8.setTextColor(Color.RED);
+        }
+        if (text9.getText().toString().contains("d")||text9.getText().toString().contains("h")){
+            text9.setTextColor(Color.RED);
+        }
+        if (text10.getText().toString().contains("d")||text10.getText().toString().contains("h")){
+            text10.setTextColor(Color.RED);
+        }
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -95,10 +127,10 @@ public class GameActivity extends Activity {
 
                 if( colour.equals("red")){
                     if(chosenTV.getText().toString().contains("h")||chosenTV.getText().toString().contains("d")){
-                        Toast.makeText(getApplicationContext(),"Red - Correct",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Correct",Toast.LENGTH_SHORT).show();
                         startRound2();
                     }else {
-                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
                         score++;
                         updateScore();
                     }
@@ -106,10 +138,10 @@ public class GameActivity extends Activity {
                 } else
                 if( colour.equals("black")){
                     if(chosenTV.getText().toString().contains("s")||chosenTV.getText().toString().contains("c")){
-                        Toast.makeText(getApplicationContext(),"Black - Correct",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Correct",Toast.LENGTH_SHORT).show();
                         startRound2();
                     }else {
-                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
                         score++;
                         updateScore();
 
@@ -129,10 +161,10 @@ public class GameActivity extends Activity {
 
                 if( pick.equals("high")){
                     if(current>old){
-                        Toast.makeText(getApplicationContext(),"Correct",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Correct",Toast.LENGTH_SHORT).show();
                         startRound3();
                     }else {
-                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
                         score+=2;
                         updateScore();
                     }
@@ -140,10 +172,10 @@ public class GameActivity extends Activity {
                 } else
                 if( pick.equals("low")){
                     if(current<old){
-                        Toast.makeText(getApplicationContext(),"Correct",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Correct",Toast.LENGTH_SHORT).show();
                         startRound3();
                     }else {
-                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
                         score+=2;
                         updateScore();
 
@@ -163,10 +195,10 @@ public class GameActivity extends Activity {
 
                 if( pick.equals("high")){
                     if(current>old){
-                        Toast.makeText(getApplicationContext(),"Correct",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Correct",Toast.LENGTH_SHORT).show();
                         startRound4();
                     }else {
-                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
                         score+=3;
                         updateScore();
                     }
@@ -174,10 +206,10 @@ public class GameActivity extends Activity {
                 } else
                 if( pick.equals("low")){
                     if(current<old){
-                        Toast.makeText(getApplicationContext(),"Correct",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Correct",Toast.LENGTH_SHORT).show();
                         startRound4();
                     }else {
-                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
                         score+=3;
                         updateScore();
 
@@ -199,7 +231,7 @@ public class GameActivity extends Activity {
                     if(current>old){
                         endOfGame();
                     }else {
-                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
                         score+=4;
                         updateScore();
                     }
@@ -209,7 +241,7 @@ public class GameActivity extends Activity {
                     if(current<old){
                         endOfGame();
                     }else {
-                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Incorrect",Toast.LENGTH_SHORT).show();
                         score+=4;
                         updateScore();
 
@@ -427,8 +459,19 @@ public class GameActivity extends Activity {
        for (int x=0;x<currentRound;x++){
            TVpickedCards[x].setVisibility(View.INVISIBLE);
            TVpickedCards[x].setText(cards[nextCard]);
-           nextCard++;
+           if (TVpickedCards[x].getText().toString().contains("d")||TVpickedCards[x].getText().toString().contains("h")){
+               TVpickedCards[x].setTextColor(Color.RED);
+           } else{
+               TVpickedCards[x].setTextColor(Color.BLACK);
+
+           }
+//               TVpickedCards[x].setText(cards[nextCard]);
+
            IVpickedCards[x].setImageResource(R.drawable.img_card_back);
+           nextCard++;
+           if(nextCard==52){
+               nextCard=0;
+           }
 
 
        }

@@ -94,8 +94,9 @@
             android:src="@drawable/img_card_back"
             android:clickable="true"
             android:layout_marginRight="14dp"
+            android:layout_marginLeft="48dp"
             android:layout_alignTop="@+id/ivCard6"
-            android:layout_toLeftOf="@+id/ivCard6"/>
+            android:layout_alignLeft="@+id/ivCard1"/>
 
     <ImageView
             android:layout_width="75dp"
@@ -105,7 +106,7 @@
             android:clickable="true"
             android:layout_marginRight="14dp"
             android:layout_below="@+id/ivCard1"
-            android:layout_centerHorizontal="true"/>
+            android:layout_toRightOf="@+id/ivCard5"/>
 
     <ImageView
             android:layout_width="75dp"
@@ -229,7 +230,7 @@
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Back To Round 1"
+            android:text="Back to the Top"
             android:id="@+id/bBackToLv1"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
