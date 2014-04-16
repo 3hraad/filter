@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="11"
+        android:minSdkVersion="12"
         android:targetSdkVersion="17" />
 
     <application
@@ -23,9 +23,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".GameActivity" android:label="Filter"/>
-        <activity android:name=".DialogRound1" android:label="Round 1"
+        <activity android:name=".RedBlackDialog" android:label="Red or Black"
                   android:theme="@android:style/Theme.Holo.Dialog"
                   android:screenOrientation="portrait"/>
+        <activity android:name=".HighLowDialog" android:label="Higher or Lower"
+                  android:theme="@android:style/Theme.Holo.Dialog"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".finishActivity" android:label="Game Over"/>
     </application>
 
 </manifest>

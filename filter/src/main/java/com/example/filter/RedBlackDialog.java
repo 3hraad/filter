@@ -9,11 +9,11 @@ import android.widget.*;
 /**
  * Created by Gary on 16/04/14.
  */
-public class DialogRound1 extends Activity {
+public class RedBlackDialog extends Activity {
     String colour=null;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.round1);
+        setContentView(R.layout.dialog_red_black);
         final RadioGroup choice =(RadioGroup)findViewById(R.id.rgRound1);
         final RadioButton red=(RadioButton)findViewById(R.id.rbRed);
         final RadioButton black=(RadioButton)findViewById(R.id.rbBlack);

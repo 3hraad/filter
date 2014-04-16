@@ -4,15 +4,19 @@
         android:layout_height="fill_parent"
         android:layout_width="fill_parent">
 
-
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/img_char"/>
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Play Game"
             android:id="@+id/bPlay"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="154dp"/>
+            android:layout_below="@+id/imageView" android:layout_centerHorizontal="true"/>
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -20,4 +24,5 @@
             android:id="@+id/bLeaders"
             android:layout_below="@+id/bPlay"
             android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>

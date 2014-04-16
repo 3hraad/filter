@@ -86,4 +86,170 @@
             android:layout_alignLeft="@+id/ivCard4"
             android:gravity="center_horizontal"
             android:visibility="invisible"/>
+    <!--Round 2-->
+    <ImageView
+            android:layout_width="75dp"
+            android:layout_height="112dp"
+            android:id="@+id/ivCard5"
+            android:src="@drawable/img_card_back"
+            android:clickable="true"
+            android:layout_marginRight="14dp"
+            android:layout_alignTop="@+id/ivCard6"
+            android:layout_toLeftOf="@+id/ivCard6"/>
+
+    <ImageView
+            android:layout_width="75dp"
+            android:layout_height="112dp"
+            android:id="@+id/ivCard6"
+            android:src="@drawable/img_card_back"
+            android:clickable="true"
+            android:layout_marginRight="14dp"
+            android:layout_below="@+id/ivCard1"
+            android:layout_centerHorizontal="true"/>
+
+    <ImageView
+            android:layout_width="75dp"
+            android:layout_height="112dp"
+            android:id="@+id/ivCard7"
+            android:src="@drawable/img_card_back"
+            android:clickable="true"
+            android:layout_alignTop="@+id/ivCard6"
+            android:layout_toRightOf="@+id/ivCard6"/>
+    <!--round2 card face-->
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="0x"
+            android:id="@+id/tvCard5"
+            android:layout_marginTop="41dp"
+            android:layout_alignTop="@+id/ivCard5"
+            android:layout_alignRight="@+id/ivCard5"
+            android:layout_alignLeft="@+id/ivCard5"
+            android:gravity="center_horizontal"
+            android:visibility="invisible"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="0x"
+            android:id="@+id/tvCard6"
+            android:layout_marginTop="41dp"
+            android:layout_alignTop="@+id/ivCard6"
+            android:layout_alignRight="@+id/ivCard6"
+            android:layout_alignLeft="@+id/ivCard6"
+            android:gravity="center_horizontal"
+            android:visibility="invisible"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="0x"
+            android:id="@+id/tvCard7"
+            android:layout_marginTop="41dp"
+            android:layout_alignTop="@+id/ivCard7"
+            android:layout_alignRight="@+id/ivCard7"
+            android:layout_alignLeft="@+id/ivCard7"
+            android:gravity="center_horizontal"
+            android:visibility="invisible"/>
+
+    <!--Round 3 card backs-->
+    <ImageView
+            android:layout_width="75dp"
+            android:layout_height="112dp"
+            android:id="@+id/ivCard8"
+            android:src="@drawable/img_card_back"
+            android:clickable="true"
+            android:layout_marginTop="5dp"
+            android:layout_alignLeft="@+id/ivCard2"
+            android:layout_below="@+id/ivCard6"/>
+    <ImageView
+            android:layout_width="75dp"
+            android:layout_height="112dp"
+            android:id="@+id/ivCard9"
+            android:src="@drawable/img_card_back"
+            android:clickable="true"
+            android:layout_marginTop="5dp"
+            android:layout_alignRight="@+id/ivCard3"
+            android:layout_below="@+id/ivCard6"/>
+
+    <!--Round 3 Card Face-->
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="0x"
+            android:id="@+id/tvCard8"
+            android:layout_marginTop="41dp"
+            android:layout_alignTop="@+id/ivCard8"
+            android:layout_alignRight="@+id/ivCard8"
+            android:layout_alignLeft="@+id/ivCard8"
+            android:gravity="center_horizontal"
+            android:visibility="invisible"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="0x"
+            android:id="@+id/tvCard9"
+            android:layout_marginTop="41dp"
+            android:layout_alignTop="@+id/ivCard9"
+            android:layout_alignRight="@+id/ivCard9"
+            android:layout_alignLeft="@+id/ivCard9"
+            android:gravity="center_horizontal"
+            android:visibility="invisible"/>
+
+    <!--Round 4 card back-->
+    <ImageView
+            android:layout_width="75dp"
+            android:layout_height="112dp"
+            android:id="@+id/ivCard10"
+            android:src="@drawable/img_card_back"
+            android:clickable="true"
+            android:layout_marginTop="5dp"
+            android:layout_alignRight="@+id/ivCard6"
+            android:layout_below="@+id/ivCard8"/>
+    <!--Round 4 card face-->
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="0x"
+            android:id="@+id/tvCard10"
+            android:layout_marginTop="41dp"
+            android:layout_alignTop="@+id/ivCard10"
+            android:layout_alignRight="@+id/ivCard10"
+            android:layout_alignLeft="@+id/ivCard10"
+            android:gravity="center_horizontal"
+            android:visibility="invisible"/>
+
+
+    <!--Controls-->
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back To Round 1"
+            android:id="@+id/bBackToLv1"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true"
+            android:visibility="invisible"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Score: 0"
+            android:id="@+id/tvScore"
+            android:layout_above="@+id/bBackToLv1"
+            android:layout_alignLeft="@+id/ivCard1"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="HighScore: 0"
+            android:id="@+id/tvHighscore"
+            android:layout_above="@+id/bBackToLv1"
+            android:layout_alignRight="@+id/ivCard4"/>
+
 </RelativeLayout>
