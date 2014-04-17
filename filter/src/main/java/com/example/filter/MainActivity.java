@@ -28,6 +28,15 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(i);
             }
         });
+
+        Button cool = (Button)findViewById(R.id.bCoolCoffee);
+        cool.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,MinigameBlow.class);
+                startActivity(i);
+            }
+        });
     }
 
 

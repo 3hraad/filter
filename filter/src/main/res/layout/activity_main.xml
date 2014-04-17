@@ -32,5 +32,10 @@
             android:id="@+id/bHowTo"
             android:layout_below="@+id/bLeaders"
             android:layout_alignRight="@+id/bLeaders" android:layout_alignLeft="@+id/bLeaders"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cool the Coffee"
+            android:id="@+id/bCoolCoffee" android:layout_below="@+id/bHowTo" android:layout_alignLeft="@+id/bHowTo"/>
 
 </RelativeLayout>

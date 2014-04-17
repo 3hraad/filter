@@ -8,6 +8,10 @@
         android:minSdkVersion="12"
         android:targetSdkVersion="17" />
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -22,7 +26,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GameActivity" android:label="Filter"/>
+        <activity android:name=".GameActivity" android:label="Filter"
+                android:screenOrientation="portrait"/>
         <activity android:name=".RedBlackDialog" android:label="Red or Black"
                   android:theme="@android:style/Theme.Holo.Dialog"
                   android:screenOrientation="portrait"/>
@@ -30,6 +35,7 @@
                   android:theme="@android:style/Theme.Holo.Dialog"
                   android:screenOrientation="portrait"/>
         <activity android:name=".finishActivity" android:label="Game Over"/>
+        <activity android:name=".MinigameBlow" android:label="The Coffee is too hot"/>
     </application>
 
 </manifest>
